@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>动画测试</title>
+</head>
+<style type="text/css">
+  body {
+    height: 2000px;
+  }
+
+	/*弹性圆*/
+	.circle {
+		width: 100px;
+		height: 100px;
+		background: #333;
+		border-radius: 50%;
+	}
+	.circle:hover {
+		width: 120px;
+		height: 120px;
+	}
+	.circle{
+    	transition: 0.5s  cubic-bezier(.83,.97,.05,1.44);
+	}
+
+  /*hover效果1*/
+	.item1 {
+		width: 200px;
+		height: 200px;
+		border: 1px solid #a3a3a3;
+		position: relative;
+    margin-top: 30px;
+	}
+	.desc {
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		background: #26a1b4;
+		opacity: 0;
+		color: #fff;
+    -webkit-transition-property:opacity, background;
+    -webkit-transition-duration:0.8s,0.8s,0.8s;
+    -webkit-transition-delay:0s,0s,0.8s;
+    -webkit-transition-timing-function:ease,ease-in,linear;
+	}
+	.item1:hover .desc {
+		opacity: 0.8;
+	}
+
+  /*hover效果2*/
+  .item2 {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    border: 1px solid #a3a3a3;
+    margin-top: 30px;
+    overflow: hidden;
+  }
+  .item2:hover img {
+    transform: scale(1.2, 1.2);
+  }
+  .item2:hover .look-detail {
+    opacity: 0.9;
+    height: 50px;
+    line-height: 50px;
+    bottom: 0;
+  }
+  .img-wrapper {
+    width: 200px;
+    height: 150px;
+    overflow: hidden;
+  }
+  img {
+    display: block;
+    width: 200px;
+    height: 150px;
+    -webkit-transition-duration:0.4s,0.4s,0.4s;
+    -webkit-transition-delay:0s,0s,0.4s;
+    -webkit-transition-timing-function:ease,ease-in,linear;
+  }
+  .look-detail {
+    position: absolute;
+    bottom: -50px;
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    background: #26a1b4;
+    color: #fff;
+    text-align: center;
+    opacity: 0;
+    -webkit-transition-property: opacity, height, bottom;
+    -webkit-transition-duration:0.3s,0.3s,0.3s;
+    /*-webkit-transition-delay:0s,0s,0.2s;*/
+    -webkit-transition-timing-function: ease;
+  }
+
+  /*hover效果3*/
+  .item3 {
+    width: 200px;
+    height: 200px;
+    border: 1px solid #a3a3a3;
+    margin-top: 30px;
+    -webkit-transition-property: margin, box-shadow;
+    -webkit-transition-duration:0.5s,0.5s,0.5s;
+    /*-webkit-transition-delay:0s,0s,0.2s;*/
+    -webkit-transition-timing-function: ease;
+    box-shadow: 0 0 0 0 rgba(0, 36, 100, .3);
+    background-color: #f8f8f8;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+  }
+  .item3:hover {
+    margin: 20px 0 0 0;
+    box-shadow: 0 26px 40px -24px rgba(0, 36, 100, .3);
+  }
+
+  /*下拉框渐进显示*/
+  .nav {
+    height: 60px;
+    line-height: 60px;
+    border-bottom: 1px solid #a3a3a3;
+  }
+  .nav li {
+    float: left;
+    list-style: none;
+    padding: 0 20px;
+  }
+  .nav li:hover {
+    background: #f8f8f8;
+  }
+  
+  .hot {
+    position: relative;
+  }
+  .hot-class {
+    opacity: 0;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    width: 200px;
+    height: 0;
+    -webkit-transition-property: opacity, top, padding-bottom;
+    -webkit-transition-duration:0.5s;
+    /*-webkit-transition-delay:0s,0s,0.2s;*/
+    -webkit-transition-timing-function: ease;
+    border: 1px solid #a3a3a3;
+    padding-left: 20px;
+    -webkit-border-radius: 0 0 10px 10px;
+    -moz-border-radius: 0 0 10px 10px;
+    border-radius: 0 0 10px 10px;
+  }
+  .hot-class p {
+    height: 0;
+  }
+  .hot:hover .hot-class {
+    opacity: 1;
+    top: 60px;
+    height: 220px;
+    padding-bottom: 10px;
+  }
+
+</style>
+<body>
+  <!--弹性小球-->
+	<div class="circle"></div>
+  <!--hover效果1-->
+	<div class="item1">
+		<div class="title">我是标题</div>
+		<div class="desc">我是详细内容我是详细内容我是详细内容我是详细内容我是详细内容我是详细内容我是详细内容我是详细内容</div>
+	</div>
+  <!--hover效果2-->
+  <div class="item2">
+    <div class="img-wrapper">
+      <img src="https://aecpm.alicdn.com/simba/img/TB1X6uHLVXXXXcCXVXXSutbFXXX.jpg" alt="">
+    </div>
+    <p>我是标题</p>
+    <div class="look-detail">查看详情</div>
+  </div>
+  <!--hover效果3-->
+  <div class="item3"></div>
+  <!--下拉框渐进显示-->
+  <ul class="nav">
+    <li>首页</li>
+    <li class="hot">
+      热门课程
+      <div class="hot-class">
+        <p>vue</p>
+        <p>nodejs</p>
+        <p>webpack</p>
+      </div>
+    </li>
+    <li>问答</li>
+  </ul>
+</body>
+</html>
